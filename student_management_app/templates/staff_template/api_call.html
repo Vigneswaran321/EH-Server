@@ -1,16 +1,17 @@
-{% extends 'staff_template/base_template.html' %}
-
-{% block page_title %}
-    View DIKSHA Resources
-{% endblock page_title %}
-
-{% block main_content %}
-
-{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
 <section id="control-center">
   <script>
     
-    const getBtn = document.getElementById('get-btn');
+const getBtn = document.getElementById('get-btn');
 const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJRZ3BFVlNzVE9rR0RRamVFNVNLOUZ6dEVHQ254d2tuRyJ9.lA-IzBtRtwONpb5N-hZjnl9nPLjz2kjDRahXAtM8Euc';
 const geturl="https://api.dev.diksha.gov.in/api/content/v1/read/do_2134773120371752961108";
 axios.defaults.headers.common['Authorization'] = 'Bearer '+token;
@@ -73,11 +74,5 @@ getBtn.addEventListener('click', getData);
   }</style>
     <button id="get-btn">GET Data</button>
   </section>
-  
-  
-
-  {% endblock main_content %}
-
-{% block custom_js %}
-
-{% endblock custom_js %}
+</body>
+</html>
