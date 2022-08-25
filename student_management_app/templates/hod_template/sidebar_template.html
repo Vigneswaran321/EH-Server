@@ -5,7 +5,7 @@
       <a href="{% url 'admin_home' %}" class="brand-link">
         <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
-        <span class="brand-text font-weight-light">Eternal University</span>
+        <span class="brand-text font-weight-light">Eternal School</span>
       </a>
 
       <!-- Sidebar -->
@@ -42,7 +42,7 @@
               <a href="{{ manage_staff }}" class="nav-link {% if request.path == manage_staff %} active {% endif %} {% if request.path == edit_staff %} active {% endif %}">
                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                 <p>
-                  Manage Staff
+                  Manage Teacher
                 </p>
               </a>
             </li>
@@ -52,7 +52,7 @@
               <a href="{{ add_staff }}" class="nav-link {% if request.path == add_staff %} active {% endif %}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Add Staff
+                  Add Teacher
                 </p>
               </a>
             </li>
@@ -84,7 +84,7 @@
               <a href="{{ manage_course }}" class="nav-link {% if request.path == manage_course %} active {% endif %} {% if request.path == edit_course %} active {% endif %}">
                 <i class="nav-icon fas fa-chalkboard"></i>
                 <p>
-                  Manage Course
+                  Manage Grade
                 </p>
               </a>
             </li>
@@ -94,7 +94,7 @@
               <a href="{{ add_course }}" class="nav-link {% if request.path == add_course %} active {% endif %}">
                 <i class="nav-icon fas fa-th"></i>
                 <p>
-                  Add Course
+                  Add Grade
                 </p>
               </a>
             </li>
