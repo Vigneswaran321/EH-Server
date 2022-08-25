@@ -353,3 +353,10 @@ def staff_add_result_save(request):
         except:
             messages.error(request, "Failed to Add Result!")
             return redirect('staff_add_result')
+
+def api_call(request):
+    return render(request, 'staff_template/api_call.html')
+
+def file_upload(request):
+    return render(request, 'staff_template/file_upload.html')
+

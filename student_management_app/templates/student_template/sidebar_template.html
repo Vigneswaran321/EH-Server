@@ -81,6 +81,17 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              {% url 'api_call' as api_call %}
+              <a href="{{ api_call }}" class="nav-link {% if request.path == api_call %} active {% endif %}">
+                <i class="nav-icon fas fa-comments"></i>
+                <p>
+                  API Call
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+            </li>
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

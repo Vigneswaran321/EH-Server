@@ -127,5 +127,51 @@
 
         </div><!-- /.container-fluid -->
       </section>
+      <section id="control-center">
+        <div class="container-fluid">
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                    <div class="api-header">
+                        <h3>View Resources for this Class</h3>
+                    </div>
+        <button id="get-btn" class="btn btn-primary">Open Resources</button>
+                    </div>
+                    </div>
+                    </div>
+        </div>
+      </section>
+  <script>
+    
+    const getBtn = document.getElementById('get-btn');
+const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJRZ3BFVlNzVE9rR0RRamVFNVNLOUZ6dEVHQ254d2tuRyJ9.lA-IzBtRtwONpb5N-hZjnl9nPLjz2kjDRahXAtM8Euc';
+const geturl="https://api.dev.diksha.gov.in/api/content/v1/read/do_2134773120371752961108";
+axios.defaults.headers.common['Authorization'] = 'Bearer '+token;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+const getData = () => {
+    try{
+        axios.get(`${geturl}`,{
+
+        }).then(res=>{const data=res.data.result.content.previewUrl;
+            console.log(data);
+            //let html = "<iframe src='"+data+"' width='100%' height='100%'></iframe>";
+            let text = "API Response: ";
+            url = "<a href="+data+">" + text + "</a>";
+            document.getElementById('control-center').innerHTML = url;
+        }).catch(err=>{
+            console.log(err);
+        }
+        );
+       }catch(err){
+         console.log(err.message);
+         
+};
+};
+getBtn.addEventListener('click', getData);
+
+  </script>
 
   {% endblock main_content %}

@@ -92,6 +92,30 @@
               </a>
             </li>
 
+            <li class="nav-item">
+              {% url 'api_call' as api_call %}
+              <a href="{{ api_call }}" class="nav-link {% if request.path == api_call %} active {% endif %}">
+                <i class="nav-icon fas fa-graduation-cap"></i>
+                <p>
+                  View DIKSHA Resources
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              {% url 'file_upload' as file_upload %}
+              <a href="{{ file_upload }}" class="nav-link {% if request.path == file_upload %} active {% endif %}">
+                <i class="nav-icon fas fa-chalkboard"></i>
+                <p>
+                  Upload File
+                  {% comment %} <span class="right badge badge-danger">New</span> {% endcomment %}
+                </p>
+              </a>
+            </li>
+
+
+
           </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -1,0 +1,81 @@
+{% extends 'student_template/base_template.html' %}
+
+{% block page_title %}
+    API CALL
+{% endblock page_title %}
+
+{% block main_content %}
+
+{% load static %}
+<section id="control-center">
+    <button id="get-btn">GET Data</button>
+  </section>
+  <style>html {
+    font-family: sans-serif;
+  }
+  
+  body {
+    margin: 0;
+  }
+  
+  button {
+    font: inherit;
+    background: #5102ac;
+    border: 1px solid #5102ac;
+    color: white;
+    cursor: pointer;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.5rem;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button:hover,
+  button:active {
+    background: #832ee4;
+    border-color: #832ee4;
+  }
+  
+  #control-center {
+    border: 2px solid #ccc;
+    margin: 5rem;
+    padding: 2rem;
+  }</style>
+  <script>
+    
+    const getBtn = document.getElementById('get-btn');
+const token ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJRZ3BFVlNzVE9rR0RRamVFNVNLOUZ6dEVHQ254d2tuRyJ9.lA-IzBtRtwONpb5N-hZjnl9nPLjz2kjDRahXAtM8Euc';
+const geturl="https://api.dev.diksha.gov.in/api/content/v1/read/do_2134773120371752961108";
+axios.defaults.headers.common['Authorization'] = 'Bearer '+token;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+const getData = () => {
+    try{
+        axios.get(`${geturl}`,{
+
+        }).then(res=>{const data=res.data.result.content.previewUrl;
+            console.log(data);
+            
+            let text = "API Response: ";
+            url = "<a href="+data+">" + text + "</a>";
+            document.getElementById('control-center').innerHTML = url;
+        }).catch(err=>{
+            console.log(err);
+        }
+        );
+       }catch(err){
+         console.log(err.message);
+         
+};
+};
+getBtn.addEventListener('click', getData);
+
+  </script>
+
+  {% endblock main_content %}
+
+{% block custom_js %}
+
+{% endblock custom_js %}

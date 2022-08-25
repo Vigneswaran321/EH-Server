@@ -77,6 +77,9 @@ urlpatterns = [
     path('staff_profile_update/', StaffViews.staff_profile_update, name="staff_profile_update"),
     path('staff_add_result/', StaffViews.staff_add_result, name="staff_add_result"),
     path('staff_add_result_save/', StaffViews.staff_add_result_save, name="staff_add_result_save"),
+    path('file_upload/', StaffViews.file_upload, name="file_upload"),
+    path('api_call/', StaffViews.api_call, name="api_call"),
+
 
     # URSL for Student
     path('student_home/', StudentViews.student_home, name="student_home"),
@@ -89,4 +92,6 @@ urlpatterns = [
     path('student_profile/', StudentViews.student_profile, name="student_profile"),
     path('student_profile_update/', StudentViews.student_profile_update, name="student_profile_update"),
     path('student_view_result/', StudentViews.student_view_result, name="student_view_result"),
+    path('api_call/', StudentViews.api_call, name="api_call"),
+    
 ]

@@ -66,6 +66,7 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Address</th>
+                                <th>QR-Code</th>
                                 <th>Gender</th>
                                 <th>Profile Pic</th>
                                 <th>Start Year</th>
@@ -84,10 +85,17 @@
                                 <td>{{ student.admin.last_name }}</td>
                                 <td>{{ student.admin.username }}</td>
                                 <td>{{ student.admin.email }}</td>
+                                <td><img src='https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0' class="qr-code img-thumbnail img-responsive" /></td>
+                                <style>
+                                    .qr-code {
+                                      max-width: 100px;
+                                      margin: 10px;
+                                    }
+                                  </style>
                                 <td>{{ student.address }}</td>
                                 <td>{{ student.gender }}</td>
                                 <td> <img src="{{ student.profile_pic }}" style="width: 100px;" /> </td>
-                                <td>{{ student.session_year_id.session_start_year }}</td>
+                                <td>{{ student.session_year_id.session_start_year }}</td>                    
                                 <td>{{ student.session_year_id.session_end_year }}</td>
                                 <td>{{ student.course_id.course_name }}</td>
                                 <td>{{ student.admin.last_login }}</td>
@@ -110,6 +118,30 @@
             </div>
 
         </div><!-- /.container-fluid -->
+        
+
+    </div>
+    <!-- /.card-body -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        // Function to HTML encode the text
+        // This creates a new hidden element,
+        // inserts the given text into it 
+        // and outputs it out as HTML
+        function htmlEncode(value) {
+          return $('<div/>').text(value).html();
+        }
+        $(function () {
+            // Generate the link that would be
+            // used to generate the QR Code
+            // with the given data 
+            let finalURL ='https://chart.googleapis.com/chart?cht=qr&chl='+'{{ student.admin.id }}'+'&chs=160x160&chld=L|0'
+      
+            // Replace the src of the image with
+            // the QR code image
+            $('.qr-code').attr('src', finalURL);
+        });
+      </script>
       </section>
 
   {% endblock main_content %}

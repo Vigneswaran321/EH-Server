@@ -194,6 +194,9 @@ def student_view_result(request):
     }
     return render(request, "student_template/student_view_result.html", context)
 
+def api_call(request):
+    return render(request, 'student_template/api_call.html')
+
 
 
 
